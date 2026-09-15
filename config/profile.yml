@@ -1,67 +1,61 @@
-# Profile Configuration — Template (fill in your details)
+# Profile Configuration — [YOUR_NAME]
+# EDIT THIS FILE FIRST — All other configs derive from here
 
-name: "YOUR_NAME"
-email: "your.email@example.com"
-phone: "(XXX) XXX-XXXX"
-location: "YOUR_CITY, STATE (METRO_AREA)"
-linkedin_url: "https://linkedin.com/in/yourusername"
-linkedin_display: "linkedin.com/in/yourusername"
-portfolio_url: "https://github.com/yourusername"
-portfolio_display: "github.com/yourusername"
+name: "[YOUR_FULL_NAME]"
+email: "[YOUR_EMAIL]"
+phone: "[YOUR_PHONE_NUMBER]"
+location: "[YOUR_CITY], [YOUR_STATE] ([YOUR_METRO_AREA])"
+linkedin_url: "https://linkedin.com/in/[YOUR_LINKEDIN_HANDLE]"
+linkedin_display: "linkedin.com/in/[YOUR_LINKEDIN_HANDLE]"
+portfolio_url: "https://github.com/[YOUR_GITHUB_HANDLE]"
+portfolio_display: "github.com/[YOUR_GITHUB_HANDLE]"
 
-# Target roles
+# Target roles — EDIT: Replace with your actual target job titles
 target_roles:
-  - "Customer Success Executive"
-  - "Account Manager"
-  - "Implementation Consultant"
-  - "Client Partner"
-  - "Strategic Account Executive"
+  - "[PRIMARY_ROLE_1]"
+  - "[PRIMARY_ROLE_2]"
+  - "[PRIMARY_ROLE_3]"
+  - "[SECONDARY_ROLE_1]"
+  - "[SECONDARY_ROLE_2]"
 
-# Geography
+# Geography — EDIT: Replace with your actual metro area
 geo_preferences:
-  - "YOUR_METRO_AREA"
+  - "[YOUR_METRO_AREA]"
   - "Remote (US)"
 
-# Compensation
+# Compensation strategy
 compensation:
   strategy: "flexible"
-  note: "Optimize for the right role/title, money follows"
+  note: "Optimize for [YOUR_PRIORITY]"
 
 # PDF generation threshold
 auto_pdf_score_threshold: 4.0
 
-# Job search config
+# Job search fine-tuning
 search:
   titles:
-    - "Customer Success Executive"
-    - "Customer Success Manager"
-    - "Account Manager"
-    - "Implementation Consultant"
-    - "Client Partner"
-    - "Strategic Account Executive"
-    - "Customer Success Director"
-    - "Senior Account Manager"
-    - "Client Executive"
-    - "Account Executive"
+    - "[SEARCH_TITLE_1]"
+    - "[SEARCH_TITLE_2]"
+    - "[SEARCH_TITLE_3]"
   locations:
-    - "YOUR_METRO_AREA"
+    - "[YOUR_METRO]"
     - "Remote"
-    - "YOUR_STATE"
+    - "[YOUR_STATE]"
   exclude_titles:
     - "Intern"
     - "Junior"
     - "Entry Level"
     - "Associate"
-    - "Part-time"
 
-# Archetype definitions (adapt for your background)
+# Archetype definitions
 archetypes:
-  - name: "AI Transformation"
-    signals: ["change management", "adoption", "enablement", "transformation"]
-    fit: "describe your fit here"
-  - name: "AI Forward Deployed"
-    signals: ["client-facing", "deploy", "prototype", "fast delivery", "field"]
-    fit: "describe your fit here"
-  - name: "Technical AI PM"
-    signals: ["PRD", "roadmap", "discovery", "stakeholder", "product manager"]
-    fit: "describe your fit here"
+  - name: "[ARCHETYPE_1_NAME]"
+    signals:
+      - "[keyword1]"
+      - "[keyword2]"
+    fit: "[Your fit description]"
+  - name: "[ARCHETYPE_2_NAME]"
+    signals:
+      - "[keyword1]"
+      - "[keyword2]"
+    fit: "[Your fit description]"

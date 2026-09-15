@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "job-getter-bot"
+version = "1.0.0"
+description = "Autonomous job acquisition engine with model-agnostic LLM support"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Blake E. Bridgers", email = "blake.bridgers2@outlook.com"}
+]
+keywords = [
+    "job-search",
+    "automation",
+    "ai-agent",
+    "hermes-agent",
+    "career",
+    "llm",
+    "cv-generation",
+    "ats-optimization"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Office/Business",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Homepage = "https://github.com/BBridgeers/job-getter-sanitized"
+Documentation = "https://github.com/BBridgeers/job-getter-sanitized#readme"
+Repository = "https://github.com/BBridgeers/job-getter-sanitized.git"
+Issues = "https://github.com/BBridgeers/job-getter-sanitized/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "black>=23.0",
+    "flake8>=6.0",
+    "mypy>=1.0"
+]
+
+[tool.black]
+line-length = 100
+target-version = ['py310', 'py311', 'py312']
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"

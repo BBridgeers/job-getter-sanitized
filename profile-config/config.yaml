@@ -1,0 +1,419 @@
+model:
+  default: your-default-model
+  provider: your-provider
+  base_url: https://your-endpoint/v1
+  aliases:
+    # Add your model aliases here
+    # example-model: openrouter/provider/model:free
+
+providers:
+  ollama:
+    base_url: https://ollama.com/v1
+    transport: chat_completions
+    key_env: OLLAMA_API_KEY
+  openrouter:
+    base_url: https://openrouter.ai/api/v1
+    transport: chat_completions
+    key_env: OPENROUTER_API_KEY
+  groq:
+    base_url: https://api.groq.com/openai/v1
+    transport: chat_completions
+    key_env: GROQ_API_KEY
+
+fallback_providers:
+  - provider: openrouter
+    base_url: https://openrouter.ai/api/v1
+    model: anthropic/claude-sonnet-4
+    label: claude-sonnet-4-openrouter
+
+credential_pool_strategies: {}
+toolsets:
+  - hermes-cli
+
+agent:
+  max_turns: 90
+  gateway_timeout: 1800
+  restart_drain_timeout: 60
+  service_tier: ''
+  tool_use_enforcement: auto
+  verify_on_stop: false
+  gateway_timeout_warning: 900
+  gateway_notify_interval: 600
+  reasoning_effort: high
+
+terminal:
+  backend: local
+  modal_mode: auto
+  cwd: ~
+  font_family: Cascadia Code
+  timeout: 600
+  env_passthrough: []
+  shell_init_files: []
+  auto_source_bashrc: true
+
+browser:
+  inactivity_timeout: 180
+  command_timeout: 60
+  record_sessions: false
+  allow_private_urls: false
+  cdp_url: ''
+  camofox:
+    managed_persistence: true
+  cloud_provider: playwright_mcp
+  use_gateway: false
+
+checkpoints:
+  enabled: true
+  max_snapshots: 50
+
+file_read_max_chars: 200000
+
+tool_loop_guardrails:
+  warnings_enabled: true
+  hard_stop_enabled: false
+  warn_after:
+    exact_failure: 2
+    same_tool_failure: 3
+    idempotent_no_progress: 2
+  hard_stop_after:
+    exact_failure: 5
+    same_tool_failure: 8
+    idempotent_no_progress: 5
+
+compression:
+  enabled: true
+  threshold: 0.75
+  target_ratio: 0.2
+  protect_last_n: 30
+  protect_first_n: 3
+
+bedrock:
+  region: ''
+  discovery:
+    enabled: false
+    provider_filter: []
+    refresh_interval: 3600
+  guardrail:
+    guardrail_identifier: ''
+    guardrail_version: ''
+    stream_processing_mode: async
+    trace: disabled
+
+auxiliary:
+  vision:
+    provider: auto
+    model: ''
+    base_url: ''
+    timeout: 120
+    download_timeout: 30
+  web_extract:
+    provider: openrouter
+    model: google/gemma-4-26b-a4b-it:free
+    base_url: https://openrouter.ai/api/v1
+    api_key: ${env:OPENROUTER_API_KEY}
+    timeout: 360
+  compression:
+    provider: openrouter
+    model: nvidia/nemotron-3-super-120b-a12b:free
+    base_url: https://openrouter.ai/api/v1
+    api_key: ${env:OPENROUTER_API_KEY}
+    timeout: 120
+  skills_hub:
+    provider: openrouter
+    model: google/gemma-4-26b-a4b-it:free
+    base_url: https://openrouter.ai/api/v1
+    api_key: ${env:OPENROUTER_API_KEY}
+    timeout: 30
+  approval:
+    provider: openrouter
+    model: google/gemma-4-31b-it:free
+    base_url: https://openrouter.ai/api/v1
+    api_key: ${env:OPENROUTER_API_KEY}
+    timeout: 30
+  mcp:
+    provider: openrouter
+    model: qwen/qwen3-next-80b-a3b-instruct:free
+    base_url: https://openrouter.ai/api/v1
+    api_key: ${env:OPENROUTER_API_KEY}
+    timeout: 30
+  title_generation:
+    provider: openrouter
+    model: google/gemma-4-31b-it:free
+    base_url: https://openrouter.ai/api/v1
+    api_key: ${env:OPENROUTER_API_KEY}
+    timeout: 30
+  session_search:
+    provider: openrouter
+    model: qwen/qwen3-coder:free
+    base_url: https://openrouter.ai/api/v1
+    api_key: ${env:OPENROUTER_API_KEY}
+    timeout: 30
+    extra_body: {}
+    max_concurrency: 3
+  flush_memories:
+    provider: openrouter
+    model: nvidia/nemotron-3-nano-30b-a3b:free
+    base_url: https://openrouter.ai/api/v1
+    api_key: ${env:OPENROUTER_API_KEY}
+    timeout: 30
+    extra_body: {}
+
+display:
+  compact: false
+  personality: ''
+  resume_display: full
+  busy_input_mode: steer
+  bell_on_complete: false
+  show_reasoning: false
+  streaming: true
+  final_response_markdown: strip
+  inline_diffs: true
+  show_cost: true
+  skin: default
+  user_message_preview:
+    first_lines: 2
+    last_lines: 2
+  interim_assistant_messages: true
+  tool_progress_command: false
+  tool_preview_length: 0
+  pet:
+    enabled: false
+    slug: ''
+
+dashboard:
+  theme: slate
+
+privacy:
+  redact_pii: true
+
+tts:
+  provider: edge
+  edge:
+    voice: en-US-AndrewNeural
+  speed: 1.2
+
+stt:
+  enabled: true
+  provider: groq
+  groq:
+    model: whisper-large-v3-turbo
+
+voice:
+  record_key: ctrl+b
+  max_recording_seconds: 120
+  auto_tts: false
+  beep_enabled: true
+  silence_threshold: 200
+  silence_duration: 3
+
+human_delay:
+  mode: 'off'
+  min_ms: 800
+  max_ms: 2500
+
+context:
+  engine: compressor
+
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  memory_char_limit: 5000
+  user_char_limit: 5000
+  provider: ''
+
+delegation:
+  model: ''
+  provider: ''
+  base_url: ''
+  api_key: ''
+  inherit_mcp_toolsets: true
+  max_iterations: 250
+  reasoning_effort: ''
+  max_concurrent_children: 6
+  max_spawn_depth: 1
+  orchestrator_enabled: true
+
+prefill_messages_file: ''
+
+skills:
+  external_dirs: []
+  template_vars: true
+  inline_shell: false
+  inline_shell_timeout: 10
+
+timezone: America/Chicago
+
+discord:
+  require_mention: true
+  free_response_channels: ''
+  allowed_channels: ''
+  auto_thread: true
+  reactions: true
+  server_actions: ''
+
+approvals:
+  mode: smart
+  timeout: 60
+  cron_mode: deny
+
+command_allowlist:
+  - stop/restart system service
+  - kill hermes/gateway process (self-termination)
+  - overwrite system file via redirection
+  - command parser limit or malformed executable payload
+  - git reset --hard (destroys uncommitted changes)
+  - delete in root path
+  - in-place edit of Hermes config/env
+  - hermes update (restarts gateway, kills running agents)
+  - script execution via -e/-c flag
+  - script execution via heredoc
+  - force kill processes
+  - stop/restart hermes gateway (kills running agents)
+
+quick_commands: {}
+
+hooks_auto_accept: false
+
+security:
+  allow_private_urls: false
+  redact_secrets: true
+  tirith_enabled: true
+  tirith_path: tirith
+  tirith_timeout: 5
+  tirith_fail_open: true
+  website_blocklist:
+    enabled: false
+    domains: []
+    shared_files: []
+
+cron:
+  wrap_response: true
+
+code_execution:
+  mode: project
+
+logging:
+  level: INFO
+  max_size_mb: 5
+  backup_count: 3
+
+model_catalog:
+  ttl_hours: 8760
+  providers: {}
+
+network:
+  force_ipv4: false
+
+sessions:
+  auto_prune: false
+  retention_days: 90
+  vacuum_after_prune: true
+  min_interval_hours: 24
+
+onboarding:
+  seen:
+    busy_input_prompt: true
+    tool_progress_prompt: true
+
+_config_version: 38
+
+mcp_servers: {}
+
+platform_toolsets:
+  cli:
+    - agency_agents
+    - bfl
+    - browser
+    - clarify
+    - code_execution
+    - computer_use
+    - context_engine
+    - cronjob
+    - delegation
+    - file
+    - image_gen
+    - memory
+    - session_search
+    - skills
+    - terminal
+    - todo
+    - tts
+    - video
+    - video_gen
+    - vision
+    - web
+
+known_plugin_toolsets:
+  cli:
+    - a2a
+    - agency_agents
+    - spotify
+
+known_builtin_toolsets:
+  cli:
+    - bfl
+    - browser
+    - clarify
+    - code_execution
+    - computer_use
+    - context_engine
+    - cronjob
+    - delegation
+    - discord
+    - discord_admin
+    - file
+    - homeassistant
+    - image_gen
+    - memory
+    - session_search
+    - skills
+    - spotify
+    - stt
+    - terminal
+    - todo
+    - tts
+    - video
+    - video_gen
+    - vision
+    - web
+    - x_search
+    - yuanbao
+
+video_gen:
+  provider: ''
+  model: ''
+  use_gateway: false
+
+plugins:
+  enabled:
+    - agency-agents-router
+
+goals:
+  max_turns: 50
+
+# ── Fallback Model ────────────────────────────────────────────────────
+# Automatic provider failover when primary is unavailable.
+# Uncomment and configure to enable. Triggers on rate limits (429),
+# overload (529), service errors (503), or connection failures.
+#
+# Supported providers:
+#   openrouter   (OPENROUTER_API_KEY)  — routes to any model
+#   openai-codex (OAuth — hermes auth) — OpenAI Codex
+#   nous         (OAuth — hermes auth) — Nous Portal
+#   zai          (ZAI_API_KEY)         — Z.AI / GLM
+#   kimi-coding  (KIMI_API_KEY)        — Kimi / Moonshot
+#   kimi-coding-cn (KIMI_CN_API_KEY)   — Kimi / Moonshot (China)
+#   minimax      (MINIMAX_API_KEY)     — MiniMax
+#   minimax-cn   (MINIMAX_CN_API_KEY)  — MiniMax (China)
+#   bedrock      (AWS IAM / boto3)     — AWS Bedrock (Converse API)
+#
+# For custom OpenAI-compatible endpoints, add base_url and key_env.
+#
+# fallback_model:
+#   provider: openrouter
+#   model: anthropic/claude-sonnet-4
+
+telegram:
+  require_mention: false
+  allowed_chats:
+    - YOUR_CHAT_ID

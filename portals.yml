@@ -1,0 +1,429 @@
+# Portal Scanner Configuration — Job Getter Bot
+# Targets: CSE, Account Manager, Implementation Consultant, Client Partner, Strategic Account Exec
+# Geography: YOUR_METRO_AREA + Remote (US)
+
+# ─────────────────────────────────────────────────────────
+# SEARCH QUERIES — web_search with site: filters for broad discovery
+# ─────────────────────────────────────────────────────────
+search_queries:
+  # ── Greenhouse-hosted companies ──
+  - query: 'site:boards.greenhouse.io "Customer Success" "YOUR_METRO_AREA" OR "Remote" OR "YOUR_STATE"'
+    name: "Greenhouse — CSE YOUR_METRO_AREA/Remote"
+    enabled: true
+  - query: 'site:boards.greenhouse.io "Account Manager" "Client Partner" "YOUR_METRO_AREA" OR "Remote"'
+    name: "Greenhouse — AM/CP YOUR_METRO_AREA/Remote"
+    enabled: true
+  - query: 'site:boards.greenhouse.io "Implementation Consultant" "Customer Success" "Remote"'
+    name: "Greenhouse — Implementation/CS Remote"
+    enabled: true
+  - query: 'site:boards.greenhouse.io "Strategic Account" "Customer Success" "YOUR_STATE" OR "Remote"'
+    name: "Greenhouse — Strategic Account YOUR_STATE/Remote"
+    enabled: true
+
+  # ── Ashby-hosted companies ──
+  - query: 'site:jobs.ashbyhq.com "Customer Success" "YOUR_METRO_AREA" OR "Remote" OR "YOUR_STATE"'
+    name: "Ashby — CSE YOUR_METRO_AREA/Remote"
+    enabled: true
+  - query: 'site:jobs.ashbyhq.com "Account Manager" "Client Partner" "YOUR_METRO_AREA" OR "Remote"'
+    name: "Ashby — AM/CP YOUR_METRO_AREA/Remote"
+    enabled: true
+
+  # ── Lever-hosted companies ──
+  - query: 'site:jobs.lever.co "Customer Success" "YOUR_METRO_AREA" OR "Remote" OR "YOUR_STATE"'
+    name: "Lever — CSE YOUR_METRO_AREA/Remote"
+    enabled: true
+  - query: 'site:jobs.lever.co "Account Manager" "Implementation" "YOUR_METRO_AREA" OR "Remote"'
+    name: "Lever — AM/Impl YOUR_METRO_AREA/Remote"
+    enabled: true
+
+  # ── LinkedIn Jobs ──
+  - query: 'site:linkedin.com/jobs "Customer Success Executive" "YOUR_METRO_AREA" OR "Remote"'
+    name: "LinkedIn — CSE YOUR_METRO_AREA/Remote"
+    enabled: true
+  - query: 'site:linkedin.com/jobs "Account Manager" "Client Partner" "YOUR_METRO_AREA" OR "Remote"'
+    name: "LinkedIn — AM/CP YOUR_METRO_AREA/Remote"
+    enabled: true
+  - query: 'site:linkedin.com/jobs "Implementation Consultant" "YOUR_METRO_AREA" OR "Remote"'
+    name: "LinkedIn — Implementation YOUR_METRO_AREA/Remote"
+    enabled: true
+
+  # ── Indeed ──
+  - query: 'site:indeed.com "Customer Success" "Account Manager" "YOUR_METRO_AREA" OR "Remote" "YOUR_STATE"'
+    name: "Indeed — CS/AM YOUR_METRO_AREA/Remote"
+    enabled: true
+  - query: 'site:indeed.com "Client Partner" "Strategic Account" "YOUR_METRO_AREA" OR "Remote"'
+    name: "Indeed — Client Partner/Strategic YOUR_METRO_AREA/Remote"
+    enabled: true
+
+  # ── Built In (startup/scaleup focused) ──
+  - query: 'site:builtinaustin.com OR site:builtindallas.com "Customer Success" "Account Manager"'
+    name: "Built In — CS/AM Austin/Dallas"
+    enabled: true
+
+  # ── General broad searches ──
+  - query: '"Customer Success Executive" "YOUR_METRO_AREA" OR "Remote" 2026'
+    name: "General — CSE YOUR_METRO_AREA/Remote 2026"
+    enabled: true
+  - query: '"Client Success Manager" "Account Manager" "YOUR_METRO_AREA" OR "Remote" "SaaS" 2026'
+    name: "General — CSM/AM SaaS YOUR_METRO_AREA/Remote"
+    enabled: true
+
+# ─────────────────────────────────────────────────────────
+# TRACKED COMPANIES — specific companies to scan directly
+# These are YOUR_METRO_AREA-area or remote-friendly companies likely to hire CS roles
+# ─────────────────────────────────────────────────────────
+tracked_companies:
+  # ── Major YOUR_METRO_AREA employers with CS teams ──
+  - name: "JLL"
+    careers_url: "https://careers.jll.com"
+    enabled: true
+    notes: "Active pipeline — CSE role"
+
+  - name: "Atlassian"
+    careers_url: "https://www.atlassian.com/company/careers/all-jobs"
+    enabled: true
+    api: "https://boards-api.greenhouse.io/v1/boards/atlassian/jobs"
+    api_provider: "greenhouse"
+
+  - name: "Salesforce"
+    careers_url: "https://careers.salesforce.com/en/jobs/"
+    enabled: true
+    notes: "Strong CRM expertise match"
+
+  - name: "Gainsight"
+    careers_url: "https://www.gainsight.com/careers/"
+    enabled: true
+    notes: "CS platform expertise match"
+
+  - name: "HubSpot"
+    careers_url: "https://www.hubspot.com/careers"
+    enabled: true
+    api: "https://boards-api.greenhouse.io/v1/boards/hubspot/jobs"
+    api_provider: "greenhouse"
+
+  - name: "Zoom"
+    careers_url: "https://careers.zoom.us"
+    enabled: true
+
+  - name: "Smartsheet"
+    careers_url: "https://www.smartsheet.com/careers"
+    enabled: true
+
+  - name: "Asana"
+    careers_url: "https://asana.com/jobs"
+    enabled: true
+    api: "https://boards-api.greenhouse.io/v1/boards/asana/jobs"
+    api_provider: "greenhouse"
+
+  - name: "Monday.com"
+    careers_url: "https://monday.com/careers"
+    enabled: true
+
+  - name: "Gong"
+    careers_url: "https://www.gong.io/careers/"
+    enabled: true
+
+  - name: "Outreach"
+    careers_url: "https://www.outreach.io/careers"
+    enabled: true
+    notes: "Sales engagement adjacency"
+
+  - name: "Salesloft"
+    careers_url: "https://salesloft.com/careers"
+    enabled: true
+    notes: "Sales engagement expertise match"
+
+  - name: "Intercom"
+    careers_url: "https://www.intercom.com/careers"
+    enabled: true
+
+  - name: "Zendesk"
+    careers_url: "https://www.zendesk.com/jobs/"
+    enabled: true
+
+  - name: "Freshworks"
+    careers_url: "https://www.freshworks.com/company/careers/"
+    enabled: true
+
+  - name: "ServiceNow"
+    careers_url: "https://careers.servicenow.com"
+    enabled: true
+
+  - name: "Workday"
+    careers_url: "https://www.workday.com/en-us/careers.html"
+    enabled: true
+
+  - name: "Snowflake"
+    careers_url: "https://careers.snowflake.com"
+    enabled: true
+
+  - name: "Databricks"
+    careers_url: "https://www.databricks.com/company/careers"
+    enabled: true
+
+  - name: "MongoDB"
+    careers_url: "https://www.mongodb.com/careers/positions"
+    enabled: true
+
+  - name: "HashiCorp"
+    careers_url: "https://www.hashicorp.com/careers"
+    enabled: true
+
+  - name: "Datadog"
+    careers_url: "https://www.careers.datadoghq.com"
+    enabled: true
+
+  - name: "CrowdStrike"
+    careers_url: "https://www.crowdstrike.com/careers/"
+    enabled: true
+    notes: "Security angle"
+
+  - name: "Okta"
+    careers_url: "https://www.okta.com/careers/"
+    enabled: true
+
+  - name: "PagerDuty"
+    careers_url: "https://www.pagerduty.com/careers/"
+    enabled: true
+
+  # ── YOUR_METRO_AREA-specific companies ──
+  - name: "Toyota Motor North America"
+    careers_url: "https://careers.toyota.com"
+    enabled: true
+    notes: "HQ in YOUR_METRO_AREA"
+
+  - name: "AT&T"
+    careers_url: "https://www.att.com/careers"
+    enabled: true
+    notes: "YOUR_METRO_AREA HQ"
+
+  - name: "Texas Instruments"
+    careers_url: "https://careers.ti.com"
+    enabled: true
+    notes: "YOUR_METRO_AREA HQ"
+
+  - name: "Raytheon (RTX)"
+    careers_url: "https://www.rtx.com/careers"
+    enabled: true
+    notes: "YOUR_METRO_AREA presence"
+
+  - name: "Fidelity Investments"
+    careers_url: "https://jobs.fidelity.com"
+    enabled: true
+    notes: "YOUR_METRO_AREA presence"
+
+  - name: "Capital One"
+    careers_url: "https://www.capitalonecareers.com"
+    enabled: true
+    notes: "YOUR_METRO_AREA presence"
+
+  - name: "USAA"
+    careers_url: "https://www.usaajobs.com"
+    enabled: true
+    notes: "San Antonio — remote possible"
+
+  - name: "Charles Schwab"
+    careers_url: "https://www.schwabjobs.com"
+    enabled: true
+    notes: "YOUR_METRO_AREA presence"
+
+  - name: "McKesson"
+    careers_url: "https://www.mckesson.com/careers/"
+    enabled: true
+    notes: "YOUR_METRO_AREA HQ"
+
+  - name: "Match Group"
+    careers_url: "https://matchgroup.com/careers/"
+    enabled: true
+    notes: "Previous account win"
+
+  - name: "Sabre Corporation"
+    careers_url: "https://careers.sabre.com"
+    enabled: true
+    notes: "YOUR_METRO_AREA HQ — travel tech"
+
+  - name: "NTT Data"
+    careers_url: "https://careers.nttdata.com"
+    enabled: true
+    notes: "Previous employer"
+
+  - name: "Cisco"
+    careers_url: "https://www.cisco.com/c/en/us/about/careers.html"
+    enabled: true
+    notes: "Previous partnership"
+
+  - name: "Dell Technologies"
+    careers_url: "https://www.dell.com/en-us/dt/careers.htm"
+    enabled: true
+    notes: "Previous employer (VCE/DELL EMC) — template example"
+
+  - name: "VMware (Broadcom)"
+    careers_url: "https://careers.vmware.com"
+    enabled: true
+    notes: "Certification match"
+
+  - name: "Hewlett Packard Enterprise"
+    careers_url: "https://careers.hpe.com"
+    enabled: true
+    notes: "Previous employer — high quota attainment"
+
+  # ── High-growth SaaS with CS teams ──
+  - name: "Pendo"
+    careers_url: "https://pendo.io/careers/"
+    enabled: true
+
+  - name: "WalkMe"
+    careers_url: "https://www.walkme.com/careers/"
+    enabled: true
+
+  - name: "Whatfix"
+    careers_url: "https://whatfix.com/careers/"
+    enabled: true
+
+  - name: "UserGuiding"
+    careers_url: "https://userguiding.com/careers/"
+    enabled: true
+
+  - name: "ChurnZero"
+    careers_url: "https://churnzero.net/careers/"
+    enabled: true
+
+  - name: "Totango"
+    careers_url: "https://www.totango.com/careers"
+    enabled: true
+
+  - name: "ClientSuccess"
+    careers_url: "https://www.clientsuccess.com/careers"
+    enabled: true
+
+  - name: "Catalyst"
+    careers_url: "https://catalyst.io/careers"
+    enabled: true
+
+  - name: "Strikedeck"
+    careers_url: "https://strikedeck.com/careers"
+    enabled: true
+
+  - name: "Planhat"
+    careers_url: "https://planhat.com/careers"
+    enabled: true
+
+  - name: "Chateau"
+    careers_url: "https://chateau.com/careers"
+    enabled: true
+
+  # ── AI/ML companies with CS roles ──
+  - name: "OpenAI"
+    careers_url: "https://openai.com/careers/"
+    enabled: true
+    api: "https://boards-api.greenhouse.io/v1/boards/openai/jobs"
+    api_provider: "greenhouse"
+
+  - name: "Anthropic"
+    careers_url: "https://www.anthropic.com/careers"
+    enabled: true
+
+  - name: "Hugging Face"
+    careers_url: "https://huggingface.co/careers"
+    enabled: true
+
+  - name: "Scale AI"
+    careers_url: "https://scale.com/careers"
+    enabled: true
+
+  - name: "Cohere"
+    careers_url: "https://cohere.com/careers"
+    enabled: true
+
+  - name: "Mistral AI"
+    careers_url: "https://mistral.ai/careers"
+    enabled: true
+
+# ─────────────────────────────────────────────────────────
+# TITLE FILTER — which job titles pass the filter
+# ─────────────────────────────────────────────────────────
+title_filter:
+  positive:
+    - "customer success"
+    - "account manager"
+    - "account executive"
+    - "client partner"
+    - "client success"
+    - "implementation consultant"
+    - "implementation manager"
+    - "strategic account"
+    - "customer advocate"
+    - "customer experience"
+    - "client relations"
+    - "account director"
+    - "customer success director"
+    - "VP customer success"
+    - "head of customer success"
+    - "director of customer success"
+    - "senior account manager"
+    - "principal account manager"
+    - "enterprise account"
+    - "technology consultant"
+    - "solutions consultant"
+    - "customer operations"
+    - "revenue operations"
+    - "client onboarding"
+    - "digital transformation"
+    - "adoption specialist"
+    - "enablement manager"
+
+  negative:
+    - "intern"
+    - "junior"
+    - "entry level"
+    - "associate"
+    - "part-time"
+    - "contract"
+    - "temporary"
+    - "summer"
+    - "co-op"
+    - "fellow"
+    - "apprentice"
+    - "volunteer"
+    - "unpaid"
+
+  seniority_boost:
+    - "senior"
+    - "lead"
+    - "principal"
+    - "staff"
+    - "manager"
+    - "director"
+    - "head"
+    - "vp"
+    - "vice president"
+    - "executive"
+    - "chief"
+
+# ─────────────────────────────────────────────────────────
+# LOCATION FILTER
+# ─────────────────────────────────────────────────────────
+location_filter:
+  allow:
+    - "your_metro_area"
+    - "your_state"
+    - "remote"
+    - "united states"
+    - "us"
+    - "usa"
+    - "anywhere"
+    - "home"
+    - "virtual"
+
+  block:
+    - "san francisco"
+    - "new york"
+    - "seattle"
+    - "boston"
+    - "chicago"
+    - "los angeles"
+    - "washington dc"
+    - "london"
+    - "berlin"
+    - "amsterdam"
+    - "relocation required"
